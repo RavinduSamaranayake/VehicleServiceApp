@@ -8,10 +8,7 @@
  */
 
 import React, {Component} from 'react';
-import { StyleSheet, Text, View , TextInput} from 'react-native';
-
- 
-
+import { StyleSheet,Image, Text, View , TextInput} from 'react-native';
 export default class App extends Component {
 
   constructor(){
@@ -20,7 +17,7 @@ export default class App extends Component {
       value : "Edit me!"
     }
 
-    this.handleChangeText = this.handleChangeText.bind(this);
+    this.handleChangeText = this.handleChangeText.bind(this); //bind the handleChangeText function here 
  }
 
 
@@ -31,36 +28,17 @@ export default class App extends Component {
   }
 
  render() {
-    return (
-      <View style={styles.container}>
-          <TextInput 
-            defaultValue = {this.state.value}
-            onChangeText = {this.handleChangeText}
-          />
-           
-
-          <Text>You are writing {this.state.value}</Text>
-      </View>
-
-    );
+  let pic = {
+    uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+  };
+  return (
+    <Image source={pic} style={{width: 400, height: 200}}/>
+  );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
