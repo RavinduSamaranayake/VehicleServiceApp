@@ -27,12 +27,15 @@ export default class App extends Component {
       });
   }
 
+  
+
  render() {
   let pic = {
     uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
   };
+  
   return (
-    <Image source={pic} style={{width: 400, height: 200}}/>
+    <Image source={pic} style={styles.imgsize}/>
   );
   }
 }
@@ -40,5 +43,10 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+
+  imgsize:{
+    width: 400, 
+    height: 300
   }
 });
