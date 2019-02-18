@@ -6,39 +6,59 @@
  * @flow
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
-
+               
 import React, {Component} from 'react';
-import { StyleSheet,Image, Text, View , TextInput} from 'react-native';
+import { StyleSheet,Image,Button,Text, View , TextInput} from 'react-native';
 export default class App extends Component {
 
   constructor(){
     super();
-    this.state = {
-      value : "Edit me!"
-    }
+    this.state = {}
+    this.buttonPressed = this.buttonPressed.bind(this)
+    
 
-    this.handleChangeText = this.handleChangeText.bind(this); //bind the handleChangeText function here 
+   // this.handleChangeText = this.handleChangeText.bind(this); //bind the handleChangeText function here 
  }
 
 
-  handleChangeText(newValue){
-      this.setState({
-        value: newValue
-      });
+  // handleChangeText(newValue){
+  //     this.setState({
+  //       value: newValue
+  //     });
+  // }
+
+  buttonPressed() {
+    console.log(this.state.username,this.state.password);
   }
 
   
 
  render() {
-  let pic = {
-    uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-  };
   
   return (
-    <Image source={pic} style={styles.imgsize}/>
+      <View style = {styles.container}>
+         
+           <Text>Username</Text>
+           <TextInput
+               defaultValue = {this.state.username}
+               onChangeText = {text => this.setState({username: text})}
+           />
+
+           <Text>Password</Text>
+           <TextInput
+               defaultValue = {this.state.password}
+               onChangeText = {text => this.setState({password: text})}
+           />
+
+           <Button title = {"Save"} onPress = {this.buttonPressed} />
+
+              
+      </View>
+
   );
-  }
+ }
 }
+
 
 const styles = StyleSheet.create({
   container: {
